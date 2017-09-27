@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expresso", "Expresso\Expresso.csproj", "{67B45102-A485-4CCC-B373-C50DD6EC91E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expresso.Tests", "Expresso.Tests\Expresso.Tests.csproj", "{A8AE222E-5C8D-4508-BEC8-8A0BB7D9ACB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67B45102-A485-4CCC-B373-C50DD6EC91E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B45102-A485-4CCC-B373-C50DD6EC91E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B45102-A485-4CCC-B373-C50DD6EC91E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B45102-A485-4CCC-B373-C50DD6EC91E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8AE222E-5C8D-4508-BEC8-8A0BB7D9ACB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8AE222E-5C8D-4508-BEC8-8A0BB7D9ACB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8AE222E-5C8D-4508-BEC8-8A0BB7D9ACB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8AE222E-5C8D-4508-BEC8-8A0BB7D9ACB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BBFBF43-16A5-410D-8F5A-51C9AFAFE258}
+	EndGlobalSection
+EndGlobal

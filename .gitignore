@@ -189,5 +189,6 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 /.build
-/Bars.B4.WebHost/.errors
-/Bars.B4.WebHost/.fileStorage
+/.errors
+/.fileStorage
+storage.ide
