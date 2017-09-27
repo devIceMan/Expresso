@@ -1,10 +1,10 @@
 before_build:
   - nuget restore
+  - choco install opencover.portable
+  - choco install codecov
 build_script:
  - msbuild /verbosity:quiet "Expresso.sln"
 test_script:
- - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"Expresso.Tests\bin\Debug\Expresso.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[Expresso*]* -[Expresso.Tests*]*"
+ - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"Expresso.Tests\bin\Debug\Expresso.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[Expresso*]* -[Expresso.Tests*]*"
 after_test:
- - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
- - pip install codecov
  - codecov -f "coverage.xml" -t 9224f717-ef85-4083-95b9-34a96a9aab40
