@@ -12,17 +12,17 @@ namespace Expresso.Tests
     [Trait("Category", "Expresso - Linq")]
     public class ExpressionsLinqTests : ExpressionsTestBase
     {
-        [Theory(DisplayName = "C# -> Expression -> С#")]
-        [InlineData("obj => obj.Nested.Sum(x => x.Item)")]
-        [InlineData("obj => obj.Nested.Sum(x => x.Item + x.Nested.Sum(y => y.Cost * y.Count))")]
-        [InlineData("obj => obj.Nested.First(x => x.Item > 10).Nested.Sum(y => y.Cost * y.Count)")]
-        [InlineData("obj => obj.Nested.First(x => x.Item == 10 && (x.Item == 20 || x.Item == 20))")]
-        public void OriginalStringAndParsedExpressionShoudBeTheSame(string csharpExpression)
-        {
-            var expression = ExpressionParser.FromString(csharpExpression).WithArgument<TestEntity>("obj").ToLambda<object>();
-            var text = ExpressionParser.ToString(expression);
-            text.Should().Be(csharpExpression);
-        }
+        //[Theory(DisplayName = "C# -> Expression -> С#")]
+        //[InlineData("obj => obj.Nested.Sum(x => x.Item)")]
+        //[InlineData("obj => obj.Nested.Sum(x => x.Item + x.Nested.Sum(y => y.Cost * y.Count))")]
+        //[InlineData("obj => obj.Nested.First(x => x.Item > 10).Nested.Sum(y => y.Cost * y.Count)")]
+        //[InlineData("obj => obj.Nested.First(x => x.Item == 10 && (x.Item == 20 || x.Item == 20))")]
+        //public void OriginalStringAndParsedExpressionShoudBeTheSame(string csharpExpression)
+        //{
+        //    var expression = ExpressionParser.FromString(csharpExpression).WithArgument<TestEntity>("obj").ToLambda<object>();
+        //    var text = ExpressionParser.ToString(expression);
+        //    text.Should().Be(csharpExpression);
+        //}
 
         //[Theory(DisplayName = "Парсинг LINQ-запросов")]
         //[InlineData("s.GetAll().Select(x=>new Expresso.UnitTests.TestDto { x.Id, TotalSum = x.TotalSum * 2 })")]
@@ -82,20 +82,20 @@ namespace Expresso.Tests
         //    pair[0].ShouldBeEquivalentTo(pair[1], x => x.IncludingAllDeclaredProperties().IncludingAllRuntimeProperties().IncludingFields());
         //}
 
-        [Theory(DisplayName = "Вызов методов расширения LINQ")]
-        [InlineData("list => { var x = new System.Collections.Generic.List<int>() { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 }; return x.Where(v => v > 0)}")]
-        [InlineData("x => x.Where(v=>v > 3).Select(v => v)")]
-        [InlineData("x => x.Where(v=>v > 3).Select(v => v).Cast<int>()")]
-        public void LinqExtensionsTests(string expression)
-        {
-            var data = new List<int> { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+        //[Theory(DisplayName = "Вызов методов расширения LINQ")]
+        //[InlineData("list => { var x = new System.Collections.Generic.List<int>() { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 }; return x.Where(v => v > 0)}")]
+        //[InlineData("x => x.Where(v=>v > 3).Select(v => v)")]
+        //[InlineData("x => x.Where(v=>v > 3).Select(v => v).Cast<int>()")]
+        //public void LinqExtensionsTests(string expression)
+        //{
+        //    var data = new List<int> { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
 
-            var expr = ExpressionParser.FromString(expression).WithAssemblyOf<TestEntity>().WithArgument<IQueryable<int>>();
+        //    var expr = ExpressionParser.FromString(expression).WithAssemblyOf<TestEntity>().WithArgument<IQueryable<int>>();
 
-            object result = null;
-            Action action = () => result = expr.Call<object>(data.AsQueryable());
-            action.ShouldNotThrow();
-            result.Should().NotBeNull();
-        }
+        //    object result = null;
+        //    Action action = () => result = expr.Call<object>(data.AsQueryable());
+        //    action.ShouldNotThrow();
+        //    result.Should().NotBeNull();
+        //}
     }
 }

@@ -155,33 +155,33 @@ namespace Expresso.Tests {
             str.CompareWithoutBomAndWhitespace("list => list.Where(x => x.Count > 0).Any(a => a.Name == null)");
         }
 
-        [Fact]
-        public void Should_Inline_Simple_List()
-        {
-            var list = new List<StructToInline> {
-                new StructToInline {
-                    Name = "N1",
-                    Count = 1
-                },
-                new StructToInline {
-                    Name = "N2",
-                    Count = 2
-                },
-                new StructToInline {
-                    Name = "N3",
-                    Count = 3
-                },
-                new StructToInline {
-                    Name = "N4",
-                    Count = 4
-                }
-            };
+        //[Fact]
+        //public void Should_Inline_Simple_List()
+        //{
+        //    var list = new List<StructToInline> {
+        //        new StructToInline {
+        //            Name = "N1",
+        //            Count = 1
+        //        },
+        //        new StructToInline {
+        //            Name = "N2",
+        //            Count = 2
+        //        },
+        //        new StructToInline {
+        //            Name = "N3",
+        //            Count = 3
+        //        },
+        //        new StructToInline {
+        //            Name = "N4",
+        //            Count = 4
+        //        }
+        //    };
             
-            Expression<Func<bool>> expr = () => list.Where(x => x.Count > 0).Any(a => a.Name == null);
-            var expect = "() => new System.Collections.Generic.List<Expresso.UnitTests.StructToInline> { new Expresso.UnitTests.StructToInline { Name = \"N1\", Count = 1 }, new Expresso.UnitTests.StructToInline { Name = \"N2\", Count = 2 }, new Expresso.UnitTests.StructToInline { Name = \"N3\", Count = 3 }, new Expresso.UnitTests.StructToInline { Name = \"N4\", Count = 4 } }.Where(x => x.Count > 0).Any(a => a.Name == null)";
-            var str = ExpressionParser.ToString(expr);
-            str.CompareWithoutBomAndWhitespace(expect);
-        }
+        //    Expression<Func<bool>> expr = () => list.Where(x => x.Count > 0).Any(a => a.Name == null);
+        //    var expect = "() => new System.Collections.Generic.List<Expresso.UnitTests.StructToInline> { new Expresso.UnitTests.StructToInline { Name = \"N1\", Count = 1 }, new Expresso.UnitTests.StructToInline { Name = \"N2\", Count = 2 }, new Expresso.UnitTests.StructToInline { Name = \"N3\", Count = 3 }, new Expresso.UnitTests.StructToInline { Name = \"N4\", Count = 4 } }.Where(x => x.Count > 0).Any(a => a.Name == null)";
+        //    var str = ExpressionParser.ToString(expr);
+        //    str.CompareWithoutBomAndWhitespace(expect);
+        //}
     }
 
     public struct StructToInline
